@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Gang Talk Cafe | Gallery {% endblock %}
+
+{% block content %}
+
+
+<!-- Start sub-menu-banner-section -->
+<div class="sub-menu-banner-section" style="background-image: url({% static 'img/about/about-bg.jpg' %});">
+    <!-- <div class="overlay"></div> -->
+    <div class="container" style="z-index: 9999;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <div class="title">
+                        <h3 class="text-left">Gallery</h3>
+                    </div>
+                    <nav aria-label="breadcrumb" style="display: flex; justify-content: flex-start; z-index: 999;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <span class="test-separator"></span>
+                            <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End sub-menu-banner-section -->
+
+
+<!-- Start Gallery Section CSS from here-->
+<section class="gallery-section">
+        <div class="row mx-5 mt-5">
+            <div class="gallery-filter mb-5">
+                <ul class="list-unstyled">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".breakfast">Breakfast</li>
+                    <li data-filter=".lunch">Lunch</li>
+                    <li data-filter=".dinner">Dinner</li>
+                    <li data-filter=".desert">Desert</li>
+                </ul>
+            </div>
+            <div class="gallery mt-5 text-white">
+                <div class="col-md-6 isotope-item lunch">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-1.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-1.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 isotope-item breakfast">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-2.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-2.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 isotope-item dinner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-4.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-4.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6 isotope-item lunch">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-1.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood2-1.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 isotope-item desert">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood-2.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood-2.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-food-gallery">
+                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood-1.jpg' %}">
+                                    <img src="{% static 'img/gallery/gFood-1.jpg' %}" alt="">
+                                    <h4>Chicken Fried</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+<!-- Start Gallery Section CSS from here-->
+
+
+
+{% endblock %}

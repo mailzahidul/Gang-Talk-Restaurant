@@ -1,0 +1,293 @@
+
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block title %} Gang Talk Cafe | An Ideal Restaurant {% endblock %}
+
+{% block content %}
+
+<!-- Start Slider Section -->
+{% include 'sections/slider.html' %}
+<!-- End Slider Section -->
+
+
+<!-- Start Gang Talk Cafe Section -->
+<section class="gang-talk-cafe-section" id="reach-to">
+    <div class="row mx-5">
+    <div class="col-lg-12">
+        <div class="icon-default text-center" style="background-image: url({% static 'img/pattern/pattern-1.png' %}'');">
+            <a href="#reach-to" class="scroll">
+                <img src="{% static 'img/shape/scroll-arrow.png'%}" alt="not found" class="img-fluid">
+            </a>
+        </div>
+    </div>
+    </div>
+    <div class="row align-items-center">
+    <div class="col-lg-6">
+        <div class="restant-img">
+            <img src="{% static 'img/gang-talk-cafe/gang-talk-cafe.png'%}" alt="gang-talk-cafe" class="">
+            <img src="{% static 'img/gang-talk-cafe/g-4.png'%}" alt="gang-talk-cafe" class="img-fluid">
+            <img src="{% static 'img/gang-talk-cafe/g-2.png'%}" alt="gang-talk-cafe" class="img-fluid">
+            <img src="{% static 'img/gang-talk-cafe/g-1.png'%}" alt="gang-talk-cafe" class="img-fluid">
+            <img src="{% static 'img/gang-talk-cafe/g-3.png'%}" alt="gang-talk-cafe" class="img-fluid">
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="restant-content">
+            <div class="section-title">
+                <h2>Gang Talk Cafe is One Of The Most Hygienic &amp; Trusted Food Service</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>Restaurants range from inexpensive and informal lunching or dining places catering to people working nearby.</p>
+            </div>
+            <a class="cmn-btn" href="service-details.html">Know More</a>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- End Gang Talk Cafe Section -->
+
+<!-- Start Menu Section -->
+<section class="menu-section" style="background-image: url({% static 'img/menu/menu-bg.jpg'%});">
+    <div class="row mx-5">
+        <div class="col-lg-12">
+            <div class="icon-default text-center" style="background-image: url({% static 'img/pattern/pattern-2.png'%});">
+                    <img src="{% static 'img/pattern/icon-2.png'%}" alt="not found" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="menu-title text-center">
+                <h2>Our Special Menu</h2>
+                <p>The role of a good cook ware in the preparation of a sumptuous meal cannot be over emphasized then one consider white bread. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-5 mt-5">
+            <div class="gallery-filter mb-5">
+                <ul class="list-unstyled">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".breakfast">Breakfast</li>
+                    <li data-filter=".lunch">Lunch</li>
+                    <li data-filter=".dinner">Dinner</li>
+                    <li data-filter=".chinees">Chinees</li>
+                    <li data-filter=".desert">Desert</li>
+                </ul>
+            </div>
+            <div class="gallery mt-5 text-white">
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item breakfast mb-5" style="position: absolute; left: 0px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-1.png'%}" alt="">
+                        </span>
+                        <h5>LASAL CHEESE <span>$ 15.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item lunch mb-5" style="position: absolute; left: 585px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-2.png'%}" alt="">
+                        </span>
+                        <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner mb-5" style="position: absolute; left: 585px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-3.png'%}" alt="">
+                        </span>
+                        <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item chinees breakfast mb-5" style="position: absolute; left: 585px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-4.png'%}" alt="">
+                        </span>
+                        <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item desert mb-5" style="position: absolute; left: 585px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-5.png'%}" alt="">
+                        </span>
+                        <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 isotope-item desert mb-5" style="position: absolute; left: 585px; top: 0px;">
+                    <div class="menu-list">
+                        <span class="menu-list-product">
+                            <img src="{% static 'img/menu/m-6.png'%}" alt="">
+                        </span>
+                        <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row mx-5 text-center">
+        <div class="menu-btn">
+            <a href="#" class="btn-main btn-shadow">Explore Full Menu</a>
+        </div>
+    </div>
+
+</section>
+<!-- End Menu Section -->
+
+
+
+
+<!-- Start About Section -->
+<!-- <section class="about-section" style="background-image: url({% static 'img/bg-bottom.png'%});">
+     <div class="row mx-5">
+        <div class="col-lg-12">
+            <div class="icon-default text-center" style="background-image: url({% static 'img/pattern/pattern-1.png'%});">
+                <a href="#reach-to" class="scroll">
+                    <img src="{% static 'img/shape/scroll-arrow.png'%}" alt="not found" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-5">
+        <div class="col-md-6">
+            <div class="about-img">
+                <img src="{% static 'img/about/about.jpg'%}" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="section-text about1-text a2text">
+                <div class="section-titleV2">
+                    <h3>About Dfoddy</h3>
+                </div>
+                <p>Dfoody is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal. Some restaurants are a chain, meaning that there are restaurants which have the same name and serve and where people the same food. time and to eat a meal. Some restaurants are a chain, time and to eat a meal. Some restaurants are a chain.</p>
+                <a href="#" class="btn-style-b">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- End About Section -->
+
+<!-- Start Restaurant Timing Section -->
+<section class="restaurant-timing-section">
+    <div class="row mx-5">
+        <div class="col-lg-12">
+            <div class="icon-default text-center" style="background-image: url({% static 'img/pattern/pattern-1.png'%});">
+                    <img src="{% static 'img/shape/icon6.png'%}" alt="not found" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="row mx-5 food-blog">
+        <div class="col-md-3 col-3 food-mxs">
+            <div class="food-blog-inner">
+                <div class="food-item">
+                    <div class="food-item-inner">
+                        <img src="{% static 'img/about/a-11.png'%}" alt="img">
+                    </div>
+                </div>
+                <h2>Breakfast</h2>
+                <span>8.00 am 10.00 am</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-3 food-mxs">
+            <div class="food-blog-inner">
+                <div class="food-item">
+                    <div class="food-item-inner">
+                        <img src="{% static 'img/about/a-22.png'%}" alt="">
+                    </div>
+                </div>
+                <h2>Lunch</h2>
+                <span>1.00 pm 2.00 pm</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-3 food-mxs">
+            <div class="food-blog-inner">
+                <div class="food-item">
+                    <div class="food-item-inner">
+                        <img src="{% static 'img/about/a-33.png'%}" alt="">
+                    </div>
+                </div>
+                <h2>Dinner</h2>
+                <span>7.00 pm 9.00 pm</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-3 food-mxs">
+            <div class="food-blog-inner">
+                <div class="food-item">
+                    <div class="food-item-inner">
+                        <img src="{% static 'img/about/a-44.png'%}" alt="">
+                    </div>
+                </div>
+                <h2>Dessert</h2>
+                <span>All Day</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Restaurant Timing Section -->
+
+<!-- Feature Section Strart From Here -->
+<section class="feature-area ptb-100">
+    <div class="row mx-5">
+        <div class="col-lg-12">
+            <div class="icon-default text-center" style="background-image: url({% static 'img/feature/pattern-1.png'%});">
+                    <img src="{% static 'img/feature/icon-1.png'%}" alt="not found" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="row mx-5">
+        <div class="section-title text-center w-100">
+            <h2>Gang Talk Cafe Features</h2>
+            <p>The role of a good cook ware in the preparation of a sumptuous meal cannot be over emphasized then one consider white bread</p>
+        </div>
+        <div class="feature-slider owl-theme owl-carousel">
+            <div class="feature-item">
+                <a href="#">
+                    <img src="{% static 'img/feature/feature-1.png'%}" alt="Service">
+                    <img class="service-shape" src="{% static 'img/feature/service-shape.png'%}" alt="Service">
+                    <h3>Fresh Healthy Food</h3>
+                    <p>Fresh food is food which has not been preserved and has not spoiled yet. Fo vegetables and fruits, this means.</p>
+                </a>
+            </div>
+            <div class="feature-item">
+                <a href="#">
+                    <img src="{% static 'img/feature/feature-2.png'%}" alt="Service">
+                    <img class="service-shape" src="{% static 'img/feature/service-shape.png'%}" alt="Service">
+                    <h3>Free Fast Home Delivery</h3>
+                    <p>Fresh food is food which has not been preserved and has not spoiled yet. Fo vegetables and fruits, this means.</p>
+                </a>
+            </div>
+            <div class="feature-item">
+                <a href="feature">
+                    <img src="{% static 'img/feature/feature-3.png'%}" alt="Service">
+                    <img class="service-shape" src="{% static 'img/feature/service-shape.png'%}" alt="Service">
+                    <h3>Discount Voucher</h3>
+                    <p>Fresh food is food which has not been preserved and has not spoiled yet. Fo vegetables and fruits, this means.</p>
+                </a>
+            </div>
+            <div class="feature-item">
+                <a href="#">
+                    <img src="{% static 'img/feature/menu.png'%}" alt="Service">
+                    <img class="service-shape" src="{% static 'img/feature/service-shape.png'%}" alt="Service">
+                    <h3>Various Menu</h3>
+                    <p>Fresh food is food which has not been preserved and has not spoiled yet. Fo vegetables and fruits, this means.</p>
+                </a>
+            </div>
+            <div class="feature-item">
+                <a href="#">
+                    <img src="{% static 'img/feature/food-service.png'%}" alt="Service">
+                    <img class="service-shape" src="{% static 'img/feature/service-shape.png'%}" alt="Service">
+                    <h3>Well Services</h3>
+                    <p>Fresh food is food which has not been preserved and has not spoiled yet. Fo vegetables and fruits, this means.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Feature Section Ended Here -->
+{% endblock %}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <title>{% block title %}  {% endblock %}</title>
+
+     <!-- Swiper.js slider css -->
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+     <!-- Fancybox css cdn -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+     <!-- Box Icon CSS -->
+     <link rel="stylesheet" href="{% static 'css/boxicons.min.css' %}">
+
+     <!-- Animation CSS Plugin CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+     <!-- Owl Carosel CSS -->
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+     <!-- Wow animate.css -->
+     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+     <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="image/jpg" href="{% static 'img/favicon.png'%}"/>
+
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <!--== Swiper CSS ==-->
+     <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet"/>
+
+     <!-- Main CSS-->
+     <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+
+     <!-- Responsive CSS -->
+     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+</head>
+
+<body>
+
+<!-- Start Header Section -->
+    {% include 'sections/header.html' %}
+<!-- End Header Section -->
+
+{% block content %}
+
+{% endblock %}
+
+
+
+<!-- Start Footer Section -->
+    {% include 'sections/footer.html' %}
+<!-- End Footer Section -->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Particle Js Here -->
+<script src="{% static 'js/particles.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+<!-- Isotop JS Here -->
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+<script>
+        // init Isotope
+    var $grid = $('.gallery').isotope({
+      // options
+    });
+    // filter items on button click
+    $('.gallery-filter').on( 'click', 'li', function() {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+      $(this).addClass('active').siblings('').removeClass('active');
+    });
+</script>
+
+<!-- Counter Plugin Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+<script>
+    $('.counter').counterUp({
+        delay: 20,
+        time: 1000
+    });
+</script>
+
+<!-- fancybox js cdn -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!-- wow.js uses for scroll animation -->
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+    new WOW().init();
+</script>
+
+<!--=== jquery Swiper Min Js ===-->
+<script src="{% static 'js/swiper.min.js' %}"></script>
+
+<script>
+      // Swipper Slider JS
+      var homeSlider = new Swiper('.home-slider-container', {
+        slidesPerView : 1,
+        loop: true,
+        spaceBetween : 30,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+  },
+  navigation: {
+      nextEl: '.home-slider-container .swiper-button-next',
+      prevEl: '.home-slider-container .swiper-button-prev',
+  }
+});
+</script>
+
+<!-- Slider js -->
+<script src="{% static 'js/script.js' %}"></script>
+
+<!-- OWL Carousel JS -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<script>
+     // Service Slider JS
+    $('.feature-slider').owlCarousel({
+        center:true,
+        loop:true,
+        margin: 15,
+        nav: true,
+        dots: false,
+        smartSpeed: 1000,
+        autoplay:false,
+        autoplayTimeout:4000,
+        autoplayHoverPause:true,
+        navText: [
+            "<i class='fas fa-angle-left'></i>",
+            "<i class='fas fa-angle-right'></i>"
+        ],
+        responsive:{
+            0:{
+                items:3,
+            },
+            600:{
+                items:3,
+            },
+            1000:{
+                items:3,
+            }
+        }
+    });
+</script>
+
+
+<!-- Sticky Menu jQuery -->
+<script>
+    $(window).on('scroll', function(){
+        if($(this).scrollTop()>80){
+            $('.header-area').addClass("sticky");
+        }
+        else{
+            $('.header-area').removeClass("sticky");
+        }
+    })
+</script>
+
+
+</body>
+
+</html>

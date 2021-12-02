@@ -1,0 +1,113 @@
+
+{% load static %}
+<!--== Start Hero Area Wrapper ==-->
+<section class="home-slider-area slider-default" style="background-image: url({% static 'img/slider/bg2.png' %});">
+  <div class="row mx-5">
+      <div class="home-slider-content">
+        <div class="swiper-container home-slider-container">
+          <div class="swiper-wrapper home-slider">
+            <!-- Start Slide Item -->
+            <div class="swiper-slide home-slider-item" data-swiper-autoplay="5000">
+                <div class="slider-content-area">
+                    <div class="content content-margin-top">
+                        <div class="tittle-wrp">
+                            <h2>Make Your Party With Delicious Food!</h2>
+                        </div>
+                        <p>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it.</p>
+                        <a href="{% url 'reservation' %}" class="btn slider-btn">Book A Table<i class="ml-2 fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                    <div class="layer-style">
+                        <div class="thumb" style="background-image:url({% static 'img/slider/p-2.png'%}); background-size: cover;">
+                            <img src="{% static 'img/slider/beef-burger.png'%}" class="img-fluid" alt="Virtuf-HasTech">
+                        </div>
+                        <div class="success-rate"><div class="content">5% <span>Off Now!</span></div></div>
+                        <div class="shape-style1">
+                            <img src="{% static 'img/slider/slider-g-4.png'%}" alt="g-img">
+                        </div>
+                        <!-- <div class="shape-style2">
+                            <img src="{% static 'img/shape/10.png'%}" alt="Virtuf-HasTech">
+                        </div> -->
+                        <div class="shape-style3">
+                            <img src="{% static 'img/slider/slider-g-5.png'%}" alt="g-img">
+                        </div>
+                        <!-- <div class="shape-style4">
+                            <img src="{% static 'img/shape/4.png'%}" alt="Virtuf-HasTech">
+                        </div> -->
+                        <div class="shape-style5">
+                            <img src="{% static 'img/slider/slider-g-6.png'%}" alt="Virtuf-HasTech">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- End Slide Item -->
+
+<!-- Start Slide Item -->
+            <div  class="swiper-slide home-slider-item" data-swiper-autoplay="5000">
+                <div class="slider-content-area">
+                    <div class="content content-margin-top">
+                        <div class="tittle-wrp">
+                            <h2>We belive good food offer great smile</h2>
+                        </div>
+                        <p>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it.</p>
+                        <a href="{% url 'reservation' %}" class="btn slider-btn">Book A Table<i class="ml-2 fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                    <div class="layer-style">
+                        <div class="thumb" style="background-image:url('img/slider/p-2.png'); background-size: cover;">
+                         <img src="{% static 'img/slider/beef-pasta.png'%}" class="img-fluid" alt="Virtuf-HasTech">
+                        </div>
+                        <div class="success-rate">
+                            <div class="content">New<span>Arrival!</span></div>
+                        </div>
+                        <div class="shape-style1">
+                            <img src="{% static 'img/slider/slider-g-4.png'%}" alt="Virtuf-HasTech">
+                        </div>
+                        <div class="shape-style3">
+                            <img src="{% static 'img/slider/slider-g-5.png'%}" alt="Virtuf-HasTech">
+                        </div>
+                        <div class="shape-style5">
+                            <img src="{% static 'img/slider/slider-g-6.png'%}" alt="Virtuf-HasTech">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- End Slide Item -->
+
+<!-- Start Slide Item -->
+            <div class="swiper-slide home-slider-item" data-swiper-autoplay="5000">
+                <div class="slider-content-area">
+                    <div class="content content-margin-top">
+                        <div class="tittle-wrp">
+                            <h2>Free Home Delivery Within an Hour</h2>
+                        </div>
+                        <p>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it.</p>
+                        <a href="{% url 'reservation' %}" class="btn slider-btn">Book A Table<i class="ml-2 fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                    <div class="layer-style">
+                       <div class="thumb" style="background-image:url('img/slider/p-2.png'); background-size: cover;">
+                        <img src="{% static 'img/slider/beef-sharma.png'%}" class="img-fluid"  alt="Virtuf-HasTech">
+                       </div>
+                        <div class="success-rate">
+                            <div class="content">Order<span>Now!</span></div>
+                        </div>
+                        <div class="shape-style1">
+                            <img src="{% static 'img/slider/slider-g-4.png'%}" alt="g-img">
+                        </div>
+                       <div class="shape-style3">
+                          <img src="{% static 'img/slider/slider-g-5.png'%}" alt="g-img">
+                        </div>
+                        <div class="shape-style5">
+                            <img src="{% static 'img/slider/slider-g-6.png'%}" alt="g-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- End Slide Item -->
+         </div>
+<!-- Add Arrows -->
+        <div class="swiper-button-next"><i class="fas fa-angle-double-right"></i></div>
+        <div class="swiper-button-prev"><i class="fas fa-angle-double-left"></i></div>
+    </div>
+    </div>
+</div>
+</section>
+<!--== End Hero Area Wrapper ==-->

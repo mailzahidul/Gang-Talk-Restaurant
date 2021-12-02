@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Gang Talk Cafe | Blog {% endblock %}
+
+{% block content %}
+
+
+<!-- Start sub-menu-banner-section -->
+<div class="sub-menu-banner-section" style="background-image: url({% static 'img/about/about-bg.jpg' %});">
+    <!-- <div class="overlay"></div> -->
+    <div class="container" style="z-index: 9999;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <div class="title">
+                        <h3 class="text-left">Blog</h3>
+                    </div>
+                    <nav aria-label="breadcrumb" style="display: flex; justify-content: flex-start; z-index: 999;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <span class="test-separator"></span>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End sub-menu-banner-section -->
+
+<!-- Start Single News Section -->
+<section class="single-news-section">
+        <div class="row mx-5">
+            <div class="col-lg-9 col-md-8">
+                <div class="news-details-area">
+                    <div class="blog-slides owl-carousel owl-theme owl-loaded">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1830px;">
+                                <div class="owl-item active" style="width: 610px; margin-right: 0px;">
+                                    <div class="single-blog-slide">
+                                        <a class="lightbox-gallery" href="{% static 'img/blog/blog1.jpg' %}">
+                                            <img src="{% static 'img/blog/blog1.jpg' %}" class="img-fluid" alt="Image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 610px; margin-right: 0px;">
+                                    <div class="single-blog-slide">
+                                        <a class="lightbox-gallery" href="{% static 'img/blog/blog2.jpg' %}">
+                                            <img src="{% static 'img/blog/blog2.jpg' %}" class="img-fluid" alt="Image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 610px; margin-right: 0px;">
+                                    <div class="single-blog-slide">
+                                        <a class="lightbox-gallery" href="img/blog/blog4.jpg">
+                                            <img src="{% static 'img/blog/blog4.jpg' %}" alt="Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="news-description">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fas fa-calendar"></i> 21 June</a></li>
+                                <li><a href="#"><i class="fas fa-comments"></i> 5 Comments</a></li>
+                                <li><a href="#"><i class="fas fa-user"></i> By admin</a></li>
+                            </ul>
+                            <h2>blog title goes to here</h2>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                        </div>
+                        <div class="news-share-area wow fadeInUP" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="row zndx">
+                                <div class="col-md-5">
+                                    <a href="#" class="read-more-btn"><i class="fas fa-arrow-circle-left"></i> Back</a>
+                                </div>
+                                <div class="col-md-7 text-right">
+                                    <ul class="list-inline">
+                                        <li><i class="ion-android-share-alt"></i> Share:</li>
+                                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row zndx">
+                        <div class="col-lg-12">
+
+                            <div class="comments-area wow fadeInUP" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeInUp;">
+                                <h3 class="comment-title"> 3 Comments on this post</h3>
+                                <ul class="comment-list">
+                                    <li class="comment-item">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-3">
+                                                <img class="img-circle" src="{% static 'img/blog/profile-1.jpg' %}" alt="Image">
+                                            </div>
+                                            <div class="col-lg-10 col-md-9">
+                                                <div class="comment-metadata">
+                                                    <h4>Nick Leaver</h4>
+                                                    <p>2 hours ago</p>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, velfacilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                                </div>
+                                                <a href="#" class="comment-reply-link">REPLY</a>
+                                            </div>
+                                        </div>
+                                        <div class="space-20"></div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-3 offset-lg-2">
+                                                <img class="img-circle" src="{% static 'img/blog/profile-2.jpg' %}" alt="Image">
+                                            </div>
+                                            <div class="col-lg-8 col-md-9">
+                                                <div class="comment-metadata">
+                                                    <h4>Core Anderson</h4>
+                                                    <p>2 hours ago</p>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, velfacilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                                </div>
+                                                <a href="#" class="comment-reply-link">REPLY</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-item">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-3">
+                                                <img class="img-circle" src="{% static 'img/blog/profile-3.jpg' %}" alt="Image">
+                                            </div>
+                                            <div class="col-lg-10 col-md-9">
+                                                <div class="comment-metadata">
+                                                    <h4>Nick Leaver</h4>
+                                                    <p>2 hours ago</p>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, velfacilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                                </div>
+                                                <a href="#" class="comment-reply-link">REPLY</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-item">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-3">
+                                                <img class="img-circle" src="{% static 'img/blog/profile-2.jpg' %}" alt="Image">
+                                            </div>
+                                            <div class="col-lg-10 col-md-9">
+                                                <div class="comment-metadata">
+                                                    <h4>Nick Leaver</h4>
+                                                    <p>6 hours ago</p>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, velfacilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                                </div>
+                                                <a href="#" class="comment-reply-link">REPLY</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h3 class="comment-form-title">Leave a comment</h3>
+                                <div class="comment-form-wrap wow fadeInUP" data-wow-delay="0.6s" style="visibility: visible; animation-name: fadeInUp;">
+                                    <form action="single-post.html">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p><input placeholder="Your name *" type="text" required=""></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p><input placeholder="Your email *" type="text" required=""></p>
+                                            </div>
+                                        </div>
+                                        <textarea placeholder="Message" name="message" id="message" cols="30" rows="10" required=""></textarea>
+                                        <input class="sbmt-btn" value="comment" type="submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="news-serch-form wow fadeInUP" style="visibility: visible; animation-name: fadeInUp;">
+                    <input type="text" placeholder="Search here.....">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="widget recent_posts wow fadeInUP" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeInUp;">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">News title goes to here <span>24 May, 2017</span></a>
+                        </li>
+                        <li>
+                            <a href="#">News title goes to here <span>24 May, 2017</span></a>
+                        </li>
+                        <li>
+                            <a href="#">News title goes to here <span>24 May, 2017</span></a>
+                        </li>
+                        <li>
+                            <a href="#">News title goes to here <span>24 May, 2017</span></a>
+                        </li>
+                        <li>
+                            <a href="#">News title goes to here <span>24 May, 2017</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget recent_posts wow fadeInUP" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeInUp;">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Residential Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#">Carpet & Floor Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#">Commercial Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#">Office Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#">House Cleaning</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tag_widget tag_list wow fadeInUP" data-wow-delay="0.6s" style="visibility: visible; animation-name: fadeInUp;">
+                    <h3 class="widget-title">Tags</h3>
+                     <ul>
+                        <li>
+                            <a href="#">Apartment</a>
+                        </li>
+                        <li>
+                            <a href="#">Building</a>
+                        </li>
+                        <li>
+                            <a href="#">Construction</a>
+                        </li>
+                        <li>
+                            <a href="#">Building</a>
+                        </li>
+                        <li>
+                            <a href="#">Agency</a>
+                        </li>
+                        <li>
+                            <a href="#">Maintenance</a>
+                        </li>
+                        <li>
+                            <a href="#">Pro Service</a>
+                        </li>
+                        <li>
+                            <a href="#">Clients Handle</a>
+                        </li>
+                        <li>
+                            <a href="#">Big Project</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- End Single News Section -->
+
+
+{% endblock %}

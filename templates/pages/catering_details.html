@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Gang Talk Cafe | Catering Details {% endblock %}
+
+{% block content %}
+
+<!-- Start sub-menu-banner-section -->
+<div class="sub-menu-banner-section" style="background-image: url({% static 'img/about/about-bg.jpg' %});">
+    <!-- <div class="overlay"></div> -->
+    <div class="container" style="z-index: 9999;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <div class="title">
+                        <h3 class="text-left">Lasal Cheese</h3>
+                    </div>
+                    <nav aria-label="breadcrumb" style="display: flex; justify-content: flex-start; z-index: 999;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="catering.html">Catering</a></li>
+                            <span class="test-separator"></span>
+                            <li class="breadcrumb-item active" aria-current="page">Lasal Cheese</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End sub-menu-banner-section -->
+
+<!-- Start Food Details Section -->
+<section class="food-details-section">
+  <div class="row mx-5">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="food-title-img">
+        <span class="on-sale">Sale</span>
+        <img src="{% static 'img/offer/lasal.png' %}" width="60%;" class="img-fluid" alt="">
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="food-summary">
+        <h1 class="summary-title">Lasal Cheese</h1>
+        <ul class="list-unstyled d-flex my-2">
+          <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Chicken 3 pieces</li>
+          <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Fried Rice</li>
+          <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Prawn 2 pieces</li>
+          <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Cold Drinks</li>
+        </ul>
+        <div class="price text-left pt-2 my-2">
+          <span class="ml-1">
+            <del class="mr-3">
+             <span>Tk.</span>
+             <span>200</span>
+           </del>
+           <ins class="ml-3 text-decoration-none">
+            <span>Tk.</span>
+            <span>180</span>
+          </ins>
+        </span>
+      </div>
+      <div class="short-desc mt-3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quaerat, ea explicabo amet ipsum porro magnam aliquid laborum, dicta sapiente soluta cumque in, quis odio, quisquam! Non alias, obcaecati sapiente!</p>
+      </div>
+      <form action="" style="border-bottom: 1px solid #333;" class="mb-5 pb-3">
+        <div class="nb-quantity">
+          <input class="form-control mt-3" width="50%;" type="number" placeholder="Qty" min="1">
+          <button class="btn my-3">Interested</button>
+        </div>
+      </form>
+        <div class="category_wrapper my-2">
+          <span class="posted_in meta-name">Categories: </span>
+          <span><a href="#" rel="tag">Fast Food</a>, <a href="#" rel="tag">Offer</a>
+          </span>
+        </div>
+        <div class="availability_wrapper my-3">
+          <span class="meta-name">Availability:</span>
+          <span class="stock in-stock badge-success p-1">In Stock</span>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- End Food Details Section -->
+
+
+
+{% endblock %}

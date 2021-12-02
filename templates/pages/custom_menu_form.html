@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Gang Talk Cafe | Custom Menu Form {% endblock %}
+
+{% block content %}
+
+
+<!-- Start sub-menu-banner-section -->
+<div class="sub-menu-banner-section" style="background-image: url({% static 'img/about/about-bg.jpg' %});">
+    <!-- <div class="overlay"></div> -->
+    <div class="container" style="z-index: 9999;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <div class="title">
+                        <h3 class="text-left">Custom Order</h3>
+                    </div>
+                    <nav aria-label="breadcrumb" style="display: flex; justify-content: flex-start; z-index: 999;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="catering.html">Catering</a></li>
+                            <span class="test-separator"></span>
+                            <li class="breadcrumb-item active" aria-current="page">Custom Order</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End sub-menu-banner-section -->
+
+<!-- Custom Menu Form  CSS start From here -->
+<section class="reservation-section">
+    <div class="row mx-5">
+        <div class="col-lg-1">
+            <div class="reserve-left-1">
+                <img src="{% static 'img/shape/icon3.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="reserve-left-2">
+                <img src="{% static 'img/shape/icon2.png' %}" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+            <div class="reserve-form">
+               <div class="form-title">
+                   <h3>Custom Order</h3>
+               </div>
+               <div class="main-form">
+                   <form action="#">
+                       <div class="row">
+                           <div class="col-md-6 mb-4">
+                               <input type="text" placeholder="Name" class="form-control">
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <input type="text" placeholder="Email" class="form-control">
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <input type="text" placeholder="Address" class="form-control">
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <input type="number" placeholder="Number of Table" class="form-control">
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <input type="number" placeholder="Number of People" class="form-control">
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <input type="date" placeholder="Date" class="form-control">
+                           </div>
+                           <div class="col-md-6">
+                               <input type="time" placeholder="Time" class="form-control">
+                           </div>
+                           <div class="col-md-6">
+                               <button class="btn reserve-btn">Book Now</button>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <div class="reserve-right">
+                <img src="{% static 'img/shape/icon4.png' %}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Custom Menu Form CSS start Ended here -->
+
+{% endblock %}

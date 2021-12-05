@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from .models import Contact_us, LocationDetails
+from django.core.exceptions import MultipleObjectsReturned
+from django.core.mail import send_mail
+from django.contrib import messages
 # Create your views here.
 
 
@@ -52,4 +55,23 @@ def gallery(request):
 
 
 def contact(request):
-    return render(request, 'pages/contact.html')
+    if request.method == 'POST':
+        name = request.POST['name']
+        sender = request.POST['email']
+        subject = request.POST['subject']
+        phone = request.POST['phone']
+        message = request.POST['message']
+        try:
+            msg_mail = str(message)+" " + str(sender)
+            send_mail(subject , msg_mail,sender ,  ['mailzahidul@gmail.com'], fail_silently=False)
+            messages.success(request, 'We get your message and reply shortly...')
+        except:
+            messages.error(request, "Failed to send message.")
+    
+    obj = LocationDetails.objects.get()
+
+    context = {
+        'location':obj
+    }
+
+    return render(request, 'pages/contact.html', context)

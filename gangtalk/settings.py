@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib import messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -63,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.custome_context_processor.contact_us'
             ],
         },
     },
@@ -76,11 +78,34 @@ WSGI_APPLICATION = 'gangtalk.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'gang_talk_cafe',
+      'USER':'postgres',
+      'PASSWORD':'Z009656z',
+      'HOST':'localhost',
+      'PORT':'5432',
+
     }
 }
 
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+
+
+# Before send mail Check your Gmail "Less secure app access: ON"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'                                           # can also use yahoo
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587                                                         # This is Gmail Port(This will help send mail from a gmail account)
+EMAIL_HOST_USER = 'babazahidul@gmail.com'
+EMAIL_HOST_PASSWORD = 'Z009656z'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

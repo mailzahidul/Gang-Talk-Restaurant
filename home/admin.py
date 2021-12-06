@@ -8,7 +8,14 @@ class Contact_usAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact_us, Contact_usAdmin)
 
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ['title', 'active']
+    list_editable = ['active']
 
+admin.site.register(LocationDetails, LocationAdmin)
 
-admin.site.register(LocationDetails)
-admin.site.register(Shop)
+class ShopAdmin(admin.ModelAdmin):
+    list_display = ['shop', 'district', 'phone', 'active']
+    list_editable = ['active']
+
+admin.site.register(Shop, ShopAdmin)

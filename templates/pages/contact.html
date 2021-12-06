@@ -164,14 +164,14 @@
             <div class="office-location-bg">
                 <img src="{% static 'img/contact/map-bg.png' %}" class="img-fluid" alt="">
             </div>
-            {% for i in location.shop %}
-            <div class="location-marker-1">
+            {% for i in shop %}
+            <div class="location-marker-{{ forloop.counter }}">
                 <div class="map-icon">
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="location-content">
                         <h5 class="py-2">{{ i.shop }}</h5>
-                        <p>10/3 Victoria Road</p>
-                        <p>Dhaka</p>
+                        <p>{{ i.address }}</p>
+                        <p>{{ i.district }}</p>
                     </div>
                 </div>
             </div>

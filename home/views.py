@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact_us, LocationDetails
+from .models import *
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -63,15 +63,22 @@ def contact(request):
         message = request.POST['message']
         try:
             msg_mail = str(message)+" " + str(sender)
-            send_mail(subject , msg_mail,sender ,  ['mailzahidul@gmail.com'], fail_silently=False)
+            send_mail(subject , msg_mail, sender ,  ['mailzahidul@gmail.com'], fail_silently=False)
             messages.success(request, 'We get your message and reply shortly...')
         except:
             messages.error(request, "Failed to send message.")
     
-    obj = LocationDetails.objects.get()
+
+    try:
+        obj = LocationDetails.objects.get(active=True)
+        shop_obj = Shop.objects.filter(location=obj, active=True)
+    except:
+        obj = LocationDetails.objects.filter().last()
+        shop_obj = Shop.objects.filter(location=obj, active=True)
 
     context = {
-        'location':obj
+        'location':obj,
+        'shop':shop_obj
     }
 
     return render(request, 'pages/contact.html', context)

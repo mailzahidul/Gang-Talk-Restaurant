@@ -33,6 +33,7 @@ class Contact_us(models.Model):
 class LocationDetails(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -43,6 +44,7 @@ class Shop(models.Model):
     address = models.CharField(max_length=150)
     district = models.CharField(max_length=20, null=True, blank=True)
     phone = models.CharField(max_length=15)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.location.title+"-"+self.shop

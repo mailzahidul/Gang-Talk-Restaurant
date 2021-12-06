@@ -42,14 +42,6 @@ def food_details(request):
     return render(request, 'pages/food_details.html')
 
 
-def blog(request):
-    return render(request, 'pages/blog.html')
-
-
-def single_blog(request):
-    return render(request, 'pages/single_blog.html')
-
-
 def gallery(request):
     return render(request, 'pages/gallery.html')
 

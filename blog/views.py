@@ -9,12 +9,28 @@ def blog(request):
     posts = Post.objects.filter(is_active=True, status=status)
     recent_posts = Post.objects.filter(is_active=True).order_by('-id')[:5]
     categories = Categories.objects.filter().order_by('-id')[:5]
+    tags = Tag.objects.all().order_by('id')[:10]
     context = {
         'posts':posts,
         'recent_posts':recent_posts,
-        'categories':categories
+        'categories':categories,
+        'tags':tags
     }
     return render(request, 'pages/posts.html', context)
+
+
+def category_posts(request, id):
+    posts = Post.objects.filter(category=id)
+    recent_posts = Post.objects.filter(is_active=True).order_by('-id')[:5]
+    categories = Categories.objects.filter().order_by('-id')[:5]
+    tags = Tag.objects.all().order_by('id')[:10]
+    context = {
+        'posts':posts,
+        'recent_posts':recent_posts,
+        'categories':categories,
+        'tags':tags
+    }
+    return render(request, 'pages/category_posts.html', context)
 
 
 def single_post(request, id):

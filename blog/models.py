@@ -58,7 +58,6 @@ class Post(models.Model):
     is_featured = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag)
     visit_count = models.IntegerField(blank=True, null=True)
-    is_active = models.BooleanField(default=True)
     created_date = models.DateField(auto_now_add=True)
     edited_date = models.DateField(auto_now=True)
 
@@ -75,7 +74,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 
 class Reply(models.Model):
     comment = models.ForeignKey(Comment,on_delete=models.CASCADE, related_name='reply')

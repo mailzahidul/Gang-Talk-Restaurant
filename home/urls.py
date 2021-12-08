@@ -10,7 +10,6 @@ urlpatterns=[
     path('reservation/', views.reservation, name='reservation'),
     path('catering/', views.catering, name='catering'),
     path('catering_details/', views.catering_details, name='catering_details'),
-    path('offers/', views.offers, name='offers'),
     path('food_details/', views.food_details, name='food_details'),
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),

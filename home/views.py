@@ -34,10 +34,6 @@ def custom_menu_form(request):
     return render(request, 'pages/custom_menu_form.html')
 
 
-def offers(request):
-    return render(request, 'pages/offers.html')
-
-
 def food_details(request):
     return render(request, 'pages/food_details.html')
 

@@ -16,7 +16,7 @@ admin.site.register(Author, AuthorAdmin)
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'category','status', 'is_featured', 'is_active']
-    list_editable = ['status','is_featured', 'is_active']
+    list_display = ['title', 'author', 'category','status', 'is_featured']
+    list_editable = ['status','is_featured']
 
 admin.site.register(Post, PostAdmin)

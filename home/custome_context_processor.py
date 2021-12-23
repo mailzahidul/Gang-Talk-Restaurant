@@ -1,12 +1,12 @@
-from .models import Contact_us
-from django.core.exceptions import MultipleObjectsReturned
+from .models import Company_info
+
 
 def contact_us(request):
     try:
-        obj = Contact_us.objects.get(active=True)
-    except MultipleObjectsReturned:
-        obj = Contact_us.objects.filter(active=True).last()
+        obj = Company_info.objects.filter(active=True).last()
+    except:
+        obj = Company_info.objects.filter(active=True).last()
     context = {
-        'contact':obj
+        'contact': obj
     }
     return context

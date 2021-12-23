@@ -939,7 +939,7 @@ and (max-height:1366px){
 .gang-talk-cafe-section .restant-img img:nth-child(3) {
   position: absolute;
   top: 175px;
-  right: -92px;
+  right: -36px;
   max-width: 185px;
   -webkit-animation: restant-amination 10s infinite linear;
   animation: restant-amination 10s infinite linear;

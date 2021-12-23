@@ -1,45 +1,64 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import send_mail
 from django.contrib import messages
+from restaurant.models import Meal_category
+from django.conf import settings
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'pages/index.html')
+    obj = Gang_talk.objects.last()
+    slider = Slider.objects.all()
+    meal_category = Meal_category.objects.all().order_by('id')
+    mealtime = Meal_time.objects.all()
+    try:
+        feature = Feature.objects.get(is_active=True)
+    except:
+        feature = Feature.objects.all().last()
+
+    context = {
+        'home_content':obj,
+        'meal_category':meal_category,
+        'slider':slider,
+        'feature':feature,
+        'mealtime':mealtime
+    }
+    return render(request, 'pages/index.html', context)
+
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    about_us = About_us.objects.last()
+    history = History.objects.last()
+    brands = Brand.objects.all()
+    context = {
+        'about_us':about_us,
+        'history':history,
+        'brands':brands
+    }
+    return render(request, 'pages/about.html', context)
 
 
-def menu(request):
-    return render(request, 'pages/menu.html')
-
-
-def reservation(request):
-    return render(request, 'pages/reservation.html')
-
-
-def catering(request):
-    return render(request, 'pages/catering.html')
-
-
-def catering_details(request):
-    return render(request, 'pages/catering_details.html')
+def subscribtion(request):
+    if request.method == 'POST':
+        email=request.POST['email']
+        Subscribtion.objects.create(email=email)
+        messages.success(request, 'Thanks for subscribtion...')
+        return redirect('about')
 
 
 def custom_menu_form(request):
     return render(request, 'pages/custom_menu_form.html')
 
 
-def food_details(request):
-    return render(request, 'pages/food_details.html')
-
-
 def gallery(request):
-    return render(request, 'pages/gallery.html')
+    categories = Meal_category.objects.all().order_by('id')
+    context = {
+        'categories':categories
+    }
+    return render(request, 'pages/gallery.html', context)
 
 
 def contact(request):
@@ -51,22 +70,15 @@ def contact(request):
         message = request.POST['message']
         try:
             msg_mail = str(message)+" " + str(sender)
-            send_mail(subject , msg_mail, sender ,  ['mailzahidul@gmail.com'], fail_silently=False)
+            send_mail(subject, msg_mail, sender,  ['mailzahidul@gmail.com'], fail_silently=False)
             messages.success(request, 'We get your message and reply shortly...')
         except:
             messages.error(request, "Failed to send message.")
-    
 
-    try:
-        obj = LocationDetails.objects.get(active=True)
-        shop_obj = Shop.objects.filter(location=obj, active=True)
-    except:
-        obj = LocationDetails.objects.filter().last()
-        shop_obj = Shop.objects.filter(location=obj, active=True)
+    shops = Shop.objects.filter(active=True).order_by('id')
 
     context = {
-        'location':obj,
-        'shop':shop_obj
+        'shops':shops
     }
 
     return render(request, 'pages/contact.html', context)

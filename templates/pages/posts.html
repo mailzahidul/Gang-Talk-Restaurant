@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Gang Talk Cafe | Blog {% endblock %}
+{% block title %} {{ contact.name }} | Blog {% endblock %}
 
 {% block content %}
 
@@ -33,6 +33,26 @@
 
 <!-- Start News Section -->
 <section class="blog-section">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert{% if message.tags %} {{ message.tags }} {% endif %}" role="alert">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
         <div class="row mx-5">
             <div class="col-lg-9 col-md-9">
                 <div class="row zndx">
@@ -45,7 +65,6 @@
                             </a>
                             <div class="blog-text">
                                 <ul class="list-inline">
-                                    <li><a href="#"><i class="fas fa-comments"></i> {{ post.comment_set.count }} Comments</a></li>
                                     <li><a href="#"><i class="fas fa-user"></i> {{ post.author }}</a></li>
                                 </ul>
                                 <h3>{{ post.title }}</h3>
@@ -54,16 +73,16 @@
                             <div class="post-share-area">
                                 <div class="row">
                                     <div class="col-lg-7">
-                                        <ul class="list-inline">
+                                        <!-- <ul class="list-inline">
                                             <li><i class="ion-android-share-alt"></i> Share:</li>
                                             <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
                                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                     <div class="col-lg-5 text-right">
-                                        <a href="{% url 'single_post' post.id %}" target="_blank" class="read-more-btn">Read More <i class="fas fa-arrow-circle-right"></i></a>
+                                        <a href="{% url 'single_post' post.id %}" class="read-more-btn">Read More <i class="fas fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -73,24 +92,28 @@
 
                 </div>
                 <div class="row">
-
                     <div class="col-lg-12 text-center d-flex justify-content-center">
+                        {% if pagi.has_other_pages %}
                         <ul class="pagination pagination-box">
-                            <li class="disabled">
-                                <a href="#" aria-label="Previous">
-                                    <i class="fas fa-angle-double-left"></i>
-                                </a>
-                            </li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <i class="fas fa-angle-double-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                            {% if pagi.has_previous %}
+                              <li class="disabled"><a aria-label="Previous" href="?page={{ pagi.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in pagi.paginator.page_range %}
+                              {% if pagi.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if pagi.has_next %}
+                              <li><a aria-label="Next" href="?page={{ pagi.next_page_number }}"><i class="fas fa-angle-double-right"></i></a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -126,7 +149,7 @@
                     <ul>
                         {% for i in tags %}
                         <li>
-                            <a href="#">{{ i }}</a>
+                            <a href="{% url 'tag_posts' i.id %}">{{ i }}</a>
                         </li>
                         {% endfor %}
                     </ul>

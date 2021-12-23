@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="logo logo-ab-pos">
-                      <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'img/logo-03.png'%}" class="img-fluid" alt="">
+                      <a class="navbar-brand" href="">
+                        <img src="{{ contact.logo.url }}" class="img-fluid" alt="">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">About</a>

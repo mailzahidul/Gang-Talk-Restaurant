@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load mathfilters %}
 
-{% block title %} Gang Talk Cafe | Catering {% endblock %}
+{% block title %} {{ contact.name }} | Catering {% endblock %}
 
 {% block content %}
 
@@ -19,7 +20,7 @@
                     </div>
                     <nav aria-label="breadcrumb" style="display: flex; justify-content: flex-start; z-index: 999;">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                             <span class="test-separator"></span>
                             <li class="breadcrumb-item active" aria-current="page">Catering</li>
                         </ol>
@@ -32,143 +33,131 @@
 <!-- End sub-menu-banner-section -->
 
 <!-- Offer Section CSS start From Here -->
-<section class="catering-section">
+<section class="catering-section reservation-section">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert{% if message.tags %} {{ message.tags }} {% endif %}" role="alert">{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
         <div class="row mx-5 mt-5">
             <div class="gallery-filter mb-5">
                 <ul class="list-unstyled">
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter=".set-menu">Set Menu</li>
-                    <li data-filter=".custom-menu">Custom Menu</li>
+                    
+                    <!-- <li data-filter=".set-menu" class="set-menu-cat active">Set Menu</li>
+                    <li data-filter=".custom-menu" class="custom-cat">Custom Menu</li> -->
+
+                    
+                    <li class="set-menu-cat active">Set Menu</li>
+                    <li class="custom-cat">Custom Menu</li>
+
                 </ul>
             </div>
             <div class="gallery mt-2 text-white">
-                <div class="col-md-3 col-6 text-danger mb-3 isotope-item custom-menu">
-                    <a href="{% url 'custom_menu_form' %}" class="text-decoration-none">
-                      <div class="card">
-                        <div class="card-img">
-                            <img src="{% static 'img/offer/lasal.png' %}" width="100%;" class="img-fluid" alt="">
+                <div class=" row set-menu-content">
+                    {% for product in products %}
+                    <div class="col-md-3 col-6 text-danger mb-3 isotope-item set-menu">
+                        <a href="{% url 'catering_details' product.id %}" target="_blank" class="text-decoration-none">
+                            <div class="card">
+                            <div class="card-img">
+                                <img src="{{ product.image.url }}" width="100%;" class="img-fluid" alt="">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h5 class="text-center mt-2 mb-0">{{ product.name }}</h5>
+                                </div>
+                                <div class="price text-center pt-2">
+                                    {% if product.discount %}
+                                    <span>
+                                        <del class="mr-3">
+                                            <span>Tk.</span>
+                                            <span>{{ product.price }}</span>
+                                        </del>
+                                        <ins class="ml-3">
+                                        <span>Tk.</span>
+                                        <span>{{ product.price|sub:product.discount }}</span>
+                                        </ins>
+                                    </span>
+                                    {% else %}
+                                    <span>
+                                    <ins class="ml-3">
+                                    <span>Tk.</span>
+                                    <span>{{ product.price }}</span>
+                                    </ins>
+                                </span>
+                                    {% endif %}
+                                </div>
+                                <div class="card-btn text-center">
+                                    <form action="" class="my-2">
+                                    <button type="button" class="btn btn-1 badge-danger"><i class="far fa-heart mr-2"></i>View Details
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="card-content">
-                          <div class="card-title">
-                              <h5 class="text-center mt-2 mb-0">LASAL CHEESE</h5>
-                          </div>
-                          <div class="price text-center pt-2">
-                              <span>
-                                  <del class="mr-3">
-                                     <span>Tk.</span>
-                                     <span>200</span>
-                                 </del>
-                                 <ins class="ml-3">
-                                  <span>Tk.</span>
-                                  <span>180</span>
-                                 </ins>
-                              </span>
-                          </div>
-                          <div class="card-btn text-center">
-                              <form action="" class="my-2">
-                              <button type="button" class="btn btn-1 badge-danger"><i class="far fa-heart mr-2"></i>View Details
-                                </button>
-                            </form>
                         </div>
+                        </a>
                     </div>
-                    </div>
-                    </a>
+                    {% endfor %}
                 </div>
-                <div class="col-md-3 col-6 text-danger mb-3 isotope-item set-menu">
-                    <a href="{% url 'catering_details' %}" class="text-decoration-none">
-                      <div class="card">
-                        <div class="card-img">
-                            <img src="{% static 'img/offer/lasal.png' %}" width="100%;" class="img-fluid" alt="">
+                <div class="text-danger mb-3 isotope-item custom-menu custom-menu-content">
+                    <div class="row mx-5">
+                        <div class="col-lg-1">
+                            <div class="reserve-left-1">
+                                <img src="{% static 'img/shape/icon3.png' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="reserve-left-2">
+                                <img src="{% static 'img/shape/icon2.png' %}" class="img-fluid" alt="">
+                            </div>
                         </div>
-                        <div class="card-content">
-                          <div class="card-title">
-                              <h5 class="text-center mt-2 mb-0">LASAL CHEESE</h5>
-                          </div>
-                          <div class="price text-center pt-2">
-                              <span>
-                                  <del class="mr-3">
-                                     <span>Tk.</span>
-                                     <span>200</span>
-                                 </del>
-                                 <ins class="ml-3">
-                                  <span>Tk.</span>
-                                  <span>180</span>
-                                 </ins>
-                              </span>
-                          </div>
-                          <div class="card-btn text-center">
-                              <form action="" class="my-2">
-                              <button type="button" class="btn btn-1 badge-danger"><i class="far fa-heart mr-2"></i>View Details
-                                </button>
-                            </form>
+                        <div class="col-lg-10 col-sm-12">
+                            <div class="reserve-form">
+                               <div class="form-title">
+                                   <h3>Custom Order</h3>
+                               </div>
+                               <div class="main-form">
+                                   <form action="{% url 'custome_order' %}" method="POST">
+                                       {% csrf_token %}
+                                       <div class="row">
+                                           <div class="col-md-6 mb-4">
+                                               <input name="name" type="text" placeholder="Name" class="form-control" required="">
+                                           </div>
+                                           <div class="col-md-6 mb-4">
+                                               <input name="email" type="email" placeholder="Email" class="form-control" required="">
+                                           </div>
+                                           <div class="col-md-6 mb-4">
+                                               <input name="address" type="text" placeholder="Address" class="form-control" required="">
+                                           </div>
+                                           <div class="col-md-6 mb-4">
+                                            <input name="phone" type="text" placeholder="Phone" class="form-control" required="">
+                                            </div>
+                                           <div class="col-md-6 mb-4">
+                                               <input name="pl_num" type="number" placeholder="Number of People" class="form-control" required="">
+                                           </div>
+                                           <div class="col-md-6">
+                                               <input name="datetime" type="datetime-local" placeholder="Time" class="form-control" required="">
+                                           </div>
+                                           <div class="col-md-12">
+                                            <textarea name="description" class="form-control" placeholder="Describe your order here..." required=""></textarea>
+                                            </div>
+                                           <div class="col-md-12 my-3">
+                                               <input type="submit" class="btn reserve-btn" value="Book Now">
+                                           </div>
+                                       </div>
+                                   </form>
+                               </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-6 text-danger mb-3 isotope-item set-menu">
-                    <a href="{% url 'catering_details' %}" class="text-decoration-none">
-                      <div class="card">
-                        <div class="card-img">
-                            <img src="{% static 'img/offer/set.jpg' %}" width="100%;" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-content">
-                          <div class="card-title">
-                              <h5 class="text-center mt-2 mb-0">LASAL CHEESE</h5>
-                          </div>
-                          <div class="price text-center pt-2">
-                              <span>
-                                  <del class="mr-3">
-                                     <span>Tk.</span>
-                                     <span>200</span>
-                                 </del>
-                                 <ins class="ml-3">
-                                  <span>Tk.</span>
-                                  <span>180</span>
-                                 </ins>
-                              </span>
-                          </div>
-                          <div class="card-btn text-center">
-                              <form action="" class="my-2">
-                              <button type="button" class="btn btn-1 badge-danger"><i class="far fa-heart mr-2"></i>View Details
-                                </button>
-                            </form>
+                        <div class="col-lg-1">
+                            <div class="reserve-right">
+                                <img src="{% static 'img/shape/icon4.png' %}" class="img-fluid" alt="">
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-6 text-danger mb-3 isotope-item custom-menu">
-                    <a href="{% url 'catering_details' %}" class="text-decoration-none">
-                      <div class="card">
-                        <div class="card-img">
-                            <img src="{% static 'img/offer/lasal.png' %}" width="100%;" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-content">
-                          <div class="card-title">
-                              <h5 class="text-center mt-2 mb-0">LASAL CHEESE</h5>
-                          </div>
-                          <div class="price text-center pt-2">
-                              <span>
-                                  <del class="mr-3">
-                                     <span>Tk.</span>
-                                     <span>200</span>
-                                 </del>
-                                 <ins class="ml-3">
-                                  <span>Tk.</span>
-                                  <span>180</span>
-                                 </ins>
-                              </span>
-                          </div>
-                          <div class="card-btn text-center">
-                              <form action="" class="my-2">
-                              <button type="button" class="btn btn-1 badge-danger"><i class="far fa-heart mr-2"></i>View Details
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    </div>
-                    </a>
                 </div>
             </div>
     </div>

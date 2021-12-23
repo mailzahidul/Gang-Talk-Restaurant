@@ -4,7 +4,7 @@
      <div class="row mx-5">
         <div class="col-lg-12">
             <div class="icon-default text-center" style="background-image: url({% static 'img/footer/pattern-2.png'%});">
-                    <img src="{% static 'img/footer/footer-logo-1.png'%}" alt="not found" class="img-fluid" width="50%">
+                    <img src="{{ contact.footer_logo.url }}" alt="not found" class="img-fluid" width="50%">
             </div>
         </div>
     </div>
@@ -19,7 +19,9 @@
                 <p><i class="fas fa-home mr-3"></i>{{ contact.shop_address }}</p>
                 <p><i class="fas fa-envelope mr-3"></i>{{ contact.email }}</p>
                 <p><i class="fas fa-phone mr-3"></i>{{ contact.phone }}</p>
-                <p><i class="fas fa-print mr-3"></i>{{ contact.phone2|default_if_none:contact.phone}}</p>
+                {% if contact.fax %}
+                <p><i class="fas fa-print mr-3"></i>{{ contact.fax}}</p>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-5 footer-nav animated fadeInUp">
@@ -30,33 +32,43 @@
                     <img class="line-shape" src="{% static 'img/shape/line10.png'%}" alt="img-not-found">
                     <p style="color: red; text-align: justify;">{{ contact.about_contact }}</p>
                 </div>
+                {% if contact.twittter or contact.facebook or contact.instagram or contact.linkedin %}
                 <div class="social-share">
                     <div class="footer-social-widget">
                         <h4>Follow Us:</h4>
                         <ul class="footer-social">
+                            {% if contact.twitter %}
                             <li>
-                                <a href="{{ contact.twitter }}">
+                                <a href="{{ contact.twitter }}" target="_blank">
                                     <i class="fab fa-twitter" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            {% endif %}
+                            {% if contact.facebook %}
                             <li>
-                                <a href="{{ contact.facebook }}">
+                                <a href="{{ contact.facebook }}" target="_blank">
                                     <i class="fab fa-facebook" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            {% endif %}
+                            {% if contact.instagram %}
                             <li>
-                                <a href="{{ contact.instagram }}">
+                                <a href="{{ contact.instagram }}" target="_blank">
                                     <i class="fab fa-instagram" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            {% endif %}
+                            {% if contact.linkedin %}
                             <li>
-                                <a href="{{ contact.linkedin }}">
+                                <a href="{{ contact.linkedin }}" target="_blank">
                                     <i class="fab fa-linkedin" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -91,7 +103,6 @@
     <img class="line-shape" src="{% static 'img/shape/line10.png'%}" alt="img-not-found">
     <ul class="quick-link list-unstyled mt-3">
         <li><a href="{% url 'offers' %}"><i class="fas fa-angle-double-right mr-1"></i>Offers</a></li>
-        <li><a href="{% url 'reservation' %}"><i class="fas fa-angle-double-right mr-1"></i>Events</a></li>
         <li><a href="{% url 'blog' %}"><i class="fas fa-angle-double-right mr-1"></i>Blog</a></li>
         <li><a href="{% url 'gallery' %}"><i class="fas fa-angle-double-right mr-1"></i>Gallery</a></li>
     </ul>
@@ -103,7 +114,7 @@
  <div class="copyright text-center zndx">
     <!-- <hr style="color: #fff; background: #fff;"> -->
     <p class="copyright-text" style="font-size: 14px; color: #fff;">Copyright &copy; 2020 All Rights Reserved by
-        <a href="#" style="text-decoration: none; color: #FE6D73;">Textile Agency</a>
+        <a href="{% url 'home' %}" style="text-decoration: none; color: #FE6D73;">{{ contact.name }}</a>
     </p>
     <p class="copyright-text" style="font-size: 14px; color: #fff;">Design & Developed by
         <a href="http://www.bitspirits.io/" target="_blank" style="text-decoration: none; color: #FE6D73;">bitspirits.io</a>

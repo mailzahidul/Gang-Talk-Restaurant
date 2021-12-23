@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Gang Talk Cafe | Contact {% endblock %}
+{% block title %} {{ contact.name }} | Contact {% endblock %}
 
 {% block content %}
 
@@ -147,24 +147,26 @@
 <!-- End Contact Section -->
 
 
-<section class="office-location-section">
+<section class="office-location-section mb-4">
     <div class="row mx-5">
-        <div class="col-md-6 col-lg-6">
+        {% for shop in shops %}
+        <div class="col-md-4 col-lg-3 mb-2">
             <div class="office-title">
                 <h3 class="d-flex">
                     <sapn class="">
-                        <h3>{{location.title}}</h3>
+                        <h3>{{ shop.shop_title }}</h3>
                     </sapn>
                     <sapn class="bar mt-4 ml-2"></sapn>
                 </h3>
-                <p>{{location.description}}</p>
+                <h6 style="line-height: 35px;"><i class="fas fa-map-marker-alt mr-2"></i>{{ shop.address}}</h6>
+                <h6 style="line-height: 35px;"><i class="fas fa-phone-square-alt mr-2"></i>{{ shop.phone}}</h6>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6">
+        {% endfor %}
+        <!-- <div class="col-md-6 col-lg-6">
             <div class="office-location-bg">
                 <img src="{% static 'img/contact/map-bg.png' %}" class="img-fluid" alt="">
             </div>
-            {% for i in shop %}
             <div class="location-marker-{{ forloop.counter }}">
                 <div class="map-icon">
                     <i class="fas fa-map-marker-alt"></i>
@@ -175,28 +177,7 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
-            <!-- <div class="location-marker-2">
-                <div class="map-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="location-content">
-                        <h5 class="py-2">Shop-2</h5>
-                        <p>10/3 Victoria Road</p>
-                        <p>Dhaka</p>
-                    </div>
-                </div>
-            </div>
-            <div class="location-marker-3">
-                <div class="map-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="location-content">
-                        <h5 class="py-2">Shop-3</h5>
-                        <p>10/3 Victoria Road</p>
-                        <p>Dhaka</p>
-                    </div>
-                </div>
-            </div> -->
-        </div>
+        </div> -->
     </div>
 </section>
 {% endblock %}

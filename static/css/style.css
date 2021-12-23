@@ -2217,9 +2217,18 @@ border-bottom-color: rgba(255,255,255,.4);
 .owl-carousel .owl-item img {
     display: block;
     width: auto !important;
+    width: 100% !important;
     /* height: 100%;
     width: 100% !important; */
 }
+
+.owl-carousel .owl-item .f-img {
+  width: auto !important;
+}
+
+/* .feature-area .feature-item img .f-img{
+  width: auto !important;
+} */
 
 
 /*-----------------------------------------------------------------
@@ -2525,6 +2534,9 @@ background: #000;
   text-decoration: none;
 }
 
+.set-menu-content{
+  position: unset !important;
+}
 
 /*-----------------------------------------------------------------
                 Offer Page CSS Start From Here
@@ -2593,6 +2605,7 @@ background: #000;
 
  .offer-section .card-img img{
   height: 100%;
+  width: 100%;
   border-radius: 7px 7px 0 0;
 }
  .offer-section .card{

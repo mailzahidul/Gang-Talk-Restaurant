@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Gang Talk Cafe | Gallery {% endblock %}
+{% block title %} {{ contact.name }} | Gallery {% endblock %}
 
 {% block content %}
 
@@ -35,107 +35,62 @@
 <!-- Start Gallery Section CSS from here-->
 <section class="gallery-section">
         <div class="row mx-5 mt-5">
+
+
             <div class="gallery-filter mb-5">
                 <ul class="list-unstyled">
                     <li class="active" data-filter="*">All</li>
-                    <li data-filter=".breakfast">Breakfast</li>
-                    <li data-filter=".lunch">Lunch</li>
-                    <li data-filter=".dinner">Dinner</li>
-                    <li data-filter=".desert">Desert</li>
+                    {% for i in categories %}
+                    <li data-filter=".{{ i|lower }}">{{ i }}</li>
+                    {% endfor %}
                 </ul>
             </div>
+
             <div class="gallery mt-5 text-white">
-                <div class="col-md-6 isotope-item lunch">
+                {% for i in categories %}
+                {% for j in i.product_set.all|slice:":20" %} 
+                {% if j.is_active %}               
+                <div class="col-md-4 col-sm-4 col-xs-12 isotope-item {{ i|lower }} mb-5">
+                    <div class="single-food-gallery">
+                        <a data-fancybox="gallery" href="{{ j.image.url }}">
+                            <img src="{{ j.image.url }}" style="width: 100%; height:325px;" alt="">
+                            <h4>{{ j.meal_category.name }}</h4>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                    {% endfor %}                
+                {% endfor %}
+                </div>
+
+
+            <!-- <div class="gallery-filter mb-5">
+                <ul class="list-unstyled">
+                    <li class="active" data-filter="*">All</li>
+                    {% for i in categories %}
+                    <li data-filter=".{{ i.name|lower }}">{{ i.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div> -->
+            <!-- <div class="gallery mt-5 text-white">
+                {% for i in categories %}
+                
+                <div class="col-md-12 isotope-item {{ i.name|lower }}">
+                    {% for j in i.gallery_set.all %}                    
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-1.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-1.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
+                                <a data-fancybox="gallery" href="{{ j.image.url }}">
+                                    <img src="{{ j.image.url }}" style="width: 100%; height:325px;" alt="">
+                                    <h4>{{ j.category.name }}</h4>
                                 </a>
                             </div>
                         </div>
                     </div>
+                        {% endfor %}                    
                 </div>
-                <div class="col-md-6 isotope-item breakfast">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-2.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-2.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 isotope-item dinner">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-4.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-4.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-3.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-3.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 isotope-item lunch">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood2-1.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood2-1.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 isotope-item desert">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood-2.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood-2.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="single-food-gallery">
-                                <a data-fancybox="gallery" href="{% static 'img/gallery/gFood-1.jpg' %}">
-                                    <img src="{% static 'img/gallery/gFood-1.jpg' %}" alt="">
-                                    <h4>Chicken Fried</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {% endfor %}
+            </div> -->
     </div>
 </section>
 <!-- Start Gallery Section CSS from here-->

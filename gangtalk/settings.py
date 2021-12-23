@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'restaurant',
+    'mathfilters',
+    'django_social_share'
 ]
 
 MIDDLEWARE = [
@@ -108,6 +110,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587                                                         # This is Gmail Port(This will help send mail from a gmail account)
 EMAIL_HOST_USER = 'babazahidul@gmail.com'
 EMAIL_HOST_PASSWORD = 'Z009656z'
+
+# Custom setting. To email
+# RECIPIENT_ADDRESS = env('mailzahidul@gmail.com',)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

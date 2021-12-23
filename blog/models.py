@@ -3,23 +3,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Designation(models.Model):
-    designation = models.CharField(max_length=100)
+STATUS = (
+       ('published', 'Published'),
+       ('pending', 'Pending')
+)
 
-    class Meta:
-        verbose_name_plural = "Author Status"
-    
-    def __str__(self):
-        return self.designation
 
-class Status(models.Model):
-    status = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = "Status"
-
-    def __str__(self):
-        return self.status
+AUTHOR = (
+       ('admin', 'Admin'),
+       ('editor', 'Editor'),
+       ('moderator', 'Moderator'),
+)
 
 class Categories(models.Model):
     name = models.CharField(max_length=100)
@@ -42,7 +36,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=50, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     photo = models.ImageField(upload_to="user/", blank=True, null=True)
-    author_status = models.ForeignKey(Designation, on_delete=models.CASCADE, blank=True, null=True)
+    author_status = models.CharField(choices=AUTHOR, max_length=10, default='editor')
 
     def __str__(self):
         return self.first_name+" "+self.last_name
@@ -52,36 +46,15 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='blog/post/feature_img/')
+    gallery_1 = models.ImageField(upload_to='blog/post/feature_img/', blank=True, null=True)
+    gallery_2 = models.ImageField(upload_to='blog/post/feature_img/', blank=True, null=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     content = models.TextField()
-    status = models.ForeignKey(Status, on_delete=models.CASCADE, default='pending')
+    status = models.CharField(max_length=10, choices=STATUS, default='pending')
     is_featured = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag)
-    visit_count = models.IntegerField(blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     edited_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.title
-
-
-class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    message = models.TextField()
-    date = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
-
-
-class Reply(models.Model):
-    comment = models.ForeignKey(Comment,on_delete=models.CASCADE, related_name='reply')
-    name = models.CharField(max_length=200, null=True, blank=False)
-    email = models.EmailField()
-    message = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f" { self.name } |{ self.created_at }"

@@ -35,7 +35,7 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
      <!-- Favicon -->
-     <link rel="shortcut icon" type="image/jpg" href="{% static 'img/favicon.png'%}"/>
+     <link rel="shortcut icon" type="image/jpg" href="{{ contact.fav_icon.url }}"/>
 
      <!-- Font Awesome -->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
@@ -124,10 +124,10 @@
         slidesPerView : 1,
         loop: true,
         spaceBetween : 30,
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+    },
     effect: 'fade',
     fadeEffect: {
       crossFade: true,
@@ -188,6 +188,108 @@
     })
 </script>
 
+<script>
+    $(document).ready(function() {
+        
+        var owl = $('#owl-brand');
+        owl.owlCarousel({
+            margin: 10,
+            nav: true,
+            loop: true,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsive: {
+              0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })   
+
+      var owl = $('.chef-slider');
+      owl.owlCarousel({
+        margin: 10,
+        dots:true,
+        nav: true,
+        loop: true,
+        autoplay:false,
+         smartSpeed: 1000,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive: {
+          0: {
+            items: 1
+        },
+        600: {
+            items: 2
+        },
+        1000: {
+            items: 4
+        }
+    }
+})   
+  })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            items:1,
+            loop:true,
+            nav:true,
+            dots:true,
+            autoplay:false,
+            autoplaySpeed:1000,
+            autoplayTimeout:2000,
+            smartSpeed:1500,
+            autoplayHoverPause:true,
+               responsive: {
+                  0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $(".custom-menu-content").hide();
+
+        // tab-1
+          
+          $(".set-menu-cat").on("click",function(){
+            $(".set-menu-content").show();
+            $(".custom-menu-content").hide();
+        
+
+
+            $(".set-menu-cat").addClass('active');
+            $(".custom-cat").removeClass('active');
+          })
+
+        //tab-2
+         $(".custom-cat").on("click",function(){
+            $(".set-menu-content").hide();
+            $(".custom-menu-content").show();
+
+            $(".custom-cat").addClass('active');
+            $(".set-menu-cat").removeClass('active');
+         })
+    });
+</script>
 
 </body>
 

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from home.models import User
 
 # Create your models here.
 
@@ -30,21 +30,10 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    first_name = models.CharField(max_length=50, blank=True, null=True)
-    last_name = models.CharField(max_length=50, blank=True, null=True)
-    email = models.EmailField(blank=True, null=True)
-    photo = models.ImageField(upload_to="user/", blank=True, null=True)
-    author_status = models.CharField(choices=AUTHOR, max_length=10, default='editor')
-
-    def __str__(self):
-        return self.first_name+" "+self.last_name
-
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='blog/post/feature_img/')
     gallery_1 = models.ImageField(upload_to='blog/post/feature_img/', blank=True, null=True)
     gallery_2 = models.ImageField(upload_to='blog/post/feature_img/', blank=True, null=True)

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% load social_share %}
+{% load social_widgets %}
 
 {% block title %} {{ contact.name }} | Blog {% endblock %}
 
@@ -91,7 +91,7 @@
                         <div class="news-description">
                             <ul class="list-inline">
                                 <li><a href="#"><i class="fas fa-calendar"></i>  {{ post.created_date|date:' j F' }}</a></li>
-                                <li><a href="#"><i class="fas fa-user"></i> by {{ post.author.user }}</a></li>
+                                <li><a href="#"><i class="fas fa-user"></i> by {{ post.author }}</a></li>
                             </ul>
                             <h2> {{ post.title }}</h2>
                             <p>{{ post.content }}</p>
@@ -103,14 +103,9 @@
                                     <a href="{{ request.META.HTTP_REFERER }}" class="read-more-btn"><i class="fas fa-arrow-circle-left"></i> Back</a>
                                 </div>
                                 <div class="col-md-7 text-right">
-                                    <!-- <ul class="list-inline">
+                                    <ul class="list-inline">
                                         <li><i class="ion-android-share-alt"></i> Share:</li>
-                                        <li><a href="#"><i class="fab fa-facebook"></i>{% post_to_facebook post.title " " %}</a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-facebook"></i>{% post_to_facebook post.title "Post to Facebook!" %}</a></li>
-                                    </ul> -->
+                                        </ul>
                                 </div>
                             </div>
                         </div>

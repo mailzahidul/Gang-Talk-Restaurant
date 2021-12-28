@@ -1,11 +1,11 @@
-from .models import Company_info
+from .models import CompanyInfo
 
 
 def contact_us(request):
     try:
-        obj = Company_info.objects.filter(active=True).last()
+        obj = CompanyInfo.objects.filter(active=True).last()
     except:
-        obj = Company_info.objects.filter(active=True).last()
+        obj = CompanyInfo.objects.filter(active=True).last()
     context = {
         'contact': obj
     }

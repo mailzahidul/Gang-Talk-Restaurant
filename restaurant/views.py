@@ -100,9 +100,9 @@ def catering_mail(request):
         try:
             msg_mail = str(message)+" " + str(sender)
             send_mail(subject , msg_mail, sender ,  ['mailzahidul@gmail.com'], fail_silently=False)
-            messages.success(request, 'Thanks for your review')
+            messages.success(request, 'Mail Submit Successfully...')
         except Exception as err:
-            print(err, "Sorryyyyyyy.")
+            print(err, "Mail submission failed")
     return redirect('catering')
 
 

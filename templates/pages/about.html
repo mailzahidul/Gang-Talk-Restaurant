@@ -66,15 +66,15 @@
     <div class="row mx-5">
         <div class="col-md-6">
             <div class="about-img">
-                <img src="{% static 'img/about/about.jpg' %}" class="img-fluid" alt="">
+                <img src="{{ about_us.image.url }}" class="img-fluid" alt="">
             </div>
         </div>
         <div class="col-md-6">
             <div class="section-content">
                 <div class="section-title">
-                    <h3>{{ about_us.author_title }}</h3>
+                    <h3>{{ about_us.title }}</h3>
                 </div>
-                <p>{{ about_us.author_des }}</p>
+                <p>{{ about_us.description }}</p>
             </div>
         </div>
     </div>

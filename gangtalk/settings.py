@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from django.contrib import messages
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8n-yus+f^)3s0&(q9%9wh&%$7gs9!_1my=0!7ov75t*ud3-xao'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'localhost']
 
 
 # Application definition
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'restaurant',
-    'mathfilters',
-    'django_social_share'
+    'mathfilters'
+
 ]
 
 MIDDLEWARE = [
@@ -57,10 +58,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'gangtalk.urls'
 
+AUTH_USER_MODEL = 'home.User'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,7 +86,7 @@ WSGI_APPLICATION = 'gangtalk.wsgi.application'
 DATABASES = {
     'default': {
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'gang_talk_cafe',
+      'NAME':'new_gang_talk_web',
       'USER':'postgres',
       'PASSWORD':'Z009656z',
       'HOST':'localhost',
@@ -108,8 +111,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'                                           # can also use yahoo
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587                                                         # This is Gmail Port(This will help send mail from a gmail account)
-EMAIL_HOST_USER = 'babazahidul@gmail.com'
-EMAIL_HOST_PASSWORD = 'Z009656z'
+EMAIL_HOST_USER = 'bit.spirits.dev@gmail.com'
+EMAIL_HOST_PASSWORD = 'bitfmsspirits'
 
 # Custom setting. To email
 # RECIPIENT_ADDRESS = env('mailzahidul@gmail.com',)
@@ -152,10 +155,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    '/var/www/static/',
+    os.path.join(BASE_DIR, 'static')
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

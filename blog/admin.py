@@ -5,12 +5,6 @@ from .models import *
 admin.site.register(Categories)
 admin.site.register(Tag)
 
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name', 'email', 'author_status']
-    list_editable = ['author_status']
-
-admin.site.register(Author, AuthorAdmin)
-
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'category','status']

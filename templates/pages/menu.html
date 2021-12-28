@@ -55,15 +55,15 @@
                 <h3><span class="pr-2">0{{ forloop.counter }}.</span>{{ i.name }}</h3>
             </div>
             {% for j in i.product_set.all|slice:":10" %}
-                {% if j.is_active %} 
-                <div class="menu-item text-white">
-                    <h5>{{ j.name|upper }} <span class="ml-5">৳ {% if j.discount %} {{ j.price|sub:j.discount }} {% else %}  {{ j.price }} {%endif%}</span></h5>
-                    <ul class="list-unstyled d-flex">
-                        {% for k in j.items.all %}
-                        <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>{{ k.name }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                {% if j.is_active and j.items.all %} 
+                    <div class="menu-item text-white">
+                        <h5>{{ j.name|upper }} <span class="ml-5">৳ {% if j.discount %} {{ j.price|sub:j.discount }} {% else %}  {{ j.price }} {%endif%}</span></h5>
+                        <ul class="list-unstyled d-flex">
+                            {% for k in j.items.all %}
+                            <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>{{ k.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>
@@ -72,34 +72,18 @@
             <div class="title mb-4">
                 <h3><span class="pr-2">0{{ forloop.counter }}.</span>{{ i.name }}</h3>
             </div>
-            {% for j in i.product_set.all %}
-            <div class="menu-item text-white">
-                <h5>{{ j.name|upper }} <span class="ml-5">৳ {% if j.discount %} {{ j.price|sub:j.discount }} {% else %}  {{ j.price }} {%endif%}</span></h5>
-                <ul class="list-unstyled d-flex">
-                    {% for k in j.items.all %}
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>{{ k.name }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+            {% for j in i.product_set.all|slice:":10" %}
+                {% if j.is_active and j.items.all %} 
+                    <div class="menu-item text-white">
+                        <h5>{{ j.name|upper }} <span class="ml-5">৳ {% if j.discount %} {{ j.price|sub:j.discount }} {% else %}  {{ j.price }} {%endif%}</span></h5>
+                        <ul class="list-unstyled d-flex">
+                            {% for k in j.items.all %}
+                            <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>{{ k.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
             {% endfor %}
-            <!-- <div class="menu-item text-white">
-                <h5>JUMBO CARB SHRIMP<span class="ml-5">$ 15.00</span></h5>
-                <ul class="list-unstyled d-flex">
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Chicken 3 pieces</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Fried Rice</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Prawn 2 pieces</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Cold Drinks</li>
-                </ul>
-            </div>
-            <div class="menu-item text-white">
-                <h5>LASAL CHEESE <span class="ml-5">$ 15.00</span></h5>
-                <ul class="list-unstyled d-flex">
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Chicken 3 pieces</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Fried Rice</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Prawn 2 pieces</li>
-                    <li class="mr-3"><i class="mr-2 fas fa-check-circle"></i>Cold Drinks</li>
-                </ul>
-            </div> -->
         </div>
         <div class="col-lg-6 col-sm-5 col-4 img-pos-1">
             <div class="menu-img text-center">

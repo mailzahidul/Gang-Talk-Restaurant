@@ -21,7 +21,9 @@
                         <div class="thumb" style="background-image:url({% static 'img/slider/p-2.png'%}); background-size: cover;">
                             <img src="{{ i.image.url }}" class="img-fluid" alt="Virtuf-HasTech">
                         </div>
-                        <div class="success-rate"><div class="content">{{ i.discount_percent }}% <span>Off Now!</span></div></div>
+                        {% if i.discount %}
+                        <div class="success-rate"><div class="content">{{ i.discount }}% <span>Off Now!</span></div></div>
+                        {% endif %}
                         <div class="shape-style1">
                             <img src="{% static 'img/slider/slider-g-4.png'%}" alt="g-img">
                         </div>
